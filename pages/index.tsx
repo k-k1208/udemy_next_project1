@@ -5,7 +5,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Layout title="Home">
-        <p className="text-4xl">Keisuke's Blog Home!</p>
+        <p className="text-4xl">Keisuke Blog Home!</p>
       </Layout>
     </>
   )
