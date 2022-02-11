@@ -18,11 +18,10 @@ const Blog: NextPage<Props> = ({posts}) => {
         <ul className="m-10">
           {posts && posts.map((post) => <Post key={post.id} post={post} />)}
         </ul>
-    </Layout>
+      </Layout>
     </>
   )
 }
-
 export default Blog
 
 /*
