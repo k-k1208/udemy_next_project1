@@ -6,7 +6,7 @@ const apiUrl:string= "https://jsonplaceholder.typicode.com/posts";
 //fetchAPIの使用上仕方ないのだと　https://qiita.com/markey/items/62f08105ae98139e731f
 */
 
-type jsonType = {
+export type jsonType = {
     userId:number;
     id:number;
     title:string;
