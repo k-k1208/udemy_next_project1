@@ -13,6 +13,7 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>
 const Blog: NextPage<Props> = ({posts}) => {
   return (
     <>
+      {console.log('posts',posts)}
       <Layout title="Blog">
         <ul className="m-10">
           {posts && posts.map((post) => <Post key={post.id} post={post} />)}
