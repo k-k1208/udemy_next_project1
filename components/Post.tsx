@@ -6,7 +6,6 @@ import { jsonType } from "../lib/posts";
 https://awesome-linus.com/2019/11/19/typescript-curly-bracket-type-any-error/
 */
 const Post = ({post}:{post:jsonType}) => {
-
     return(
         <>
             <span>{post.id}</span>

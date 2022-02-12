@@ -1,11 +1,9 @@
 import fetch, {Response} from 'node-fetch'
 
 const apiUrl:string= "https://jsonplaceholder.typicode.com/posts";
-/*
-//以下の自作の型をconst posts= await res.json(); に適用したかったができずに断念
-//fetchAPIの使用上仕方ないのだと　https://qiita.com/markey/items/62f08105ae98139e731f
-*/
 
+
+// データ所得部分
 export type jsonType = {
     userId:number;
     id:number;
@@ -31,4 +29,25 @@ export const getAllPostsData= async ():Promise<jsonArrType> => {
     // 型アサーションで型推論された型Promise<unknown>をjsonArrType型に変更：型アサーションを使うのは適切ではない
     const posts= (await res.json()) as jsonArrType; 
     return posts;
+}
+
+// データ所得部分(ダイナミックルーティングに必要なidのみ)
+export const getAllPostIds = async () => {
+    const res:Response = await fetch(apiUrl);
+    const posts = (await res.json()) as jsonArrType;
+    return posts.map((post) => {
+      return {
+        params: {
+          id: String(post.id),
+        },
+      };
+    });
+  }
+
+// idに対応したブログ一件を所得
+export const getPostData = async(id:string):Promise<jsonType> => {
+    const path = apiUrl + '/' + id
+    const res = await fetch(path);
+    const post = (await res.json()) as jsonType;
+    return post;
 }
